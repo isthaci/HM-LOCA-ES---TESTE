@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HM Locações | Cadastro de Clientes</title>
+  <meta name="description" content="Cadastro de clientes HM Locações de Equipamentos Médicos" />
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header class="site-header">
+      <img src="assets/logo-hm.webp" alt="Logo HM Locações de Equipamentos Médicos" class="site-header__logo" />
+      <h1 class="site-header__title">CADASTRE-SE AQUI</h1>
+      <p class="site-header__subtitle">Preencha seus dados para realizar seu cadastro na HM Locações.</p>
+    </header>
+
+    <main class="main">
+
+      <!-- ===================== FORMULÁRIO ===================== -->
+      <form id="cadastro-form" novalidate autocomplete="off">
+
+        <!-- ---------- 01 — DADOS DA CLÍNICA ---------- -->
+        <section class="card" aria-labelledby="sec-clinica-title">
+          <div class="card__header">
+            <span class="card__number">01</span>
+            <h2 class="card__title" id="sec-clinica-title">Dados da Clínica</h2>
+          </div>
+          <div class="card__body">
+
+            <div class="field">
+              <label for="clinicaNome">Nome da clínica <span class="required">*</span></label>
+              <input type="text" id="clinicaNome" name="clinicaNome" required aria-required="true" placeholder="Ex: Clínica Vida Saudável" />
+              <span class="error-message" id="err-clinicaNome" role="alert"></span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="clinicaCnpj">CNPJ da clínica <span class="required">*</span></label>
+                <input type="text" id="clinicaCnpj" name="clinicaCnpj" inputmode="numeric" required aria-required="true" placeholder="00.000.000/0000-00" maxlength="18" />
+                <span class="error-message" id="err-clinicaCnpj" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="proprietarioNome">Nome completo do proprietário <span class="required">*</span></label>
+                <input type="text" id="proprietarioNome" name="proprietarioNome" required aria-required="true" placeholder="Nome completo" />
+                <span class="error-message" id="err-proprietarioNome" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="proprietarioCpf">CPF do proprietário <span class="required">*</span></label>
+                <input type="text" id="proprietarioCpf" name="proprietarioCpf" inputmode="numeric" required aria-required="true" placeholder="000.000.000-00" maxlength="14" />
+                <span class="error-message" id="err-proprietarioCpf" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="proprietarioConselho">Conselho profissional <span class="required">*</span></label>
+                <select id="proprietarioConselho" name="proprietarioConselho" required aria-required="true">
+                  <option value="">Selecione...</option>
+                  <option value="CREFITO">CREFITO</option>
+                  <option value="CRM">CRM</option>
+                  <option value="CRBM">CRBM</option>
+                </select>
+                <span class="error-message" id="err-proprietarioConselho" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="proprietarioRegistroNumero">Número do registro <span class="required">*</span></label>
+                <input type="text" id="proprietarioRegistroNumero" name="proprietarioRegistroNumero" inputmode="numeric" required aria-required="true" placeholder="Ex: 123456" />
+                <span class="error-message" id="err-proprietarioRegistroNumero" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="proprietarioRegistroUf">UF do registro <span class="required">*</span></label>
+                <select id="proprietarioRegistroUf" name="proprietarioRegistroUf" required aria-required="true">
+                  <option value="">Selecione...</option>
+                </select>
+                <span class="error-message" id="err-proprietarioRegistroUf" role="alert"></span>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">Endereço comercial</h3>
+
+            <div class="field-row">
+              <div class="field field--small">
+                <label for="cep">CEP <span class="required">*</span></label>
+                <input type="text" id="cep" name="cep" inputmode="numeric" required aria-required="true" placeholder="00000-000" maxlength="9" />
+                <span class="error-message" id="err-cep" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="numero">Número <span class="required">*</span></label>
+                <input type="text" id="numero" name="numero" inputmode="numeric" required aria-required="true" placeholder="Nº" />
+                <span class="error-message" id="err-numero" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="rua">Rua / Avenida <span class="required">*</span></label>
+              <input type="text" id="rua" name="rua" required aria-required="true" placeholder="Rua / Avenida" />
+              <span class="error-message" id="err-rua" role="alert"></span>
+            </div>
+
+            <div class="field">
+              <label for="complemento">Complemento <span class="optional">(opcional)</span></label>
+              <input type="text" id="complemento" name="complemento" placeholder="Sala, bloco, referência..." />
+            </div>
+
+            <div class="field">
+              <label for="bairro">Bairro <span class="required">*</span></label>
+              <input type="text" id="bairro" name="bairro" required aria-required="true" placeholder="Bairro" />
+              <span class="error-message" id="err-bairro" role="alert"></span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="cidade">Cidade <span class="required">*</span></label>
+                <input type="text" id="cidade" name="cidade" required aria-required="true" placeholder="Cidade" />
+                <span class="error-message" id="err-cidade" role="alert"></span>
+              </div>
+              <div class="field field--small">
+                <label for="estado">Estado <span class="required">*</span></label>
+                <select id="estado" name="estado" required aria-required="true">
+                  <option value="">UF</option>
+                </select>
+                <span class="error-message" id="err-estado" role="alert"></span>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">Contato</h3>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="email">E-mail <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required aria-required="true" placeholder="email@exemplo.com" />
+                <span class="error-message" id="err-email" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="telefone">Telefone / WhatsApp <span class="required">*</span></label>
+                <input type="text" id="telefone" name="telefone" inputmode="numeric" required aria-required="true" placeholder="(00) 00000-0000" maxlength="15" />
+                <span class="error-message" id="err-telefone" role="alert"></span>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">Acesso ao estabelecimento</h3>
+
+            <fieldset class="access-options" id="acessoGroup">
+              <legend>Como é o acesso ao estabelecimento? <span class="required">*</span></legend>
+              <div class="access-options__grid">
+                <label class="access-option" for="acesso-terreo">
+                  <input type="radio" id="acesso-terreo" name="acesso" value="Térreo" />
+                  <span class="access-option__icon" aria-hidden="true">🏠</span>
+                  <span class="access-option__label">Térreo</span>
+                </label>
+                <label class="access-option" for="acesso-escada">
+                  <input type="radio" id="acesso-escada" name="acesso" value="Escada" />
+                  <span class="access-option__icon" aria-hidden="true">🪜</span>
+                  <span class="access-option__label">Escada</span>
+                </label>
+                <label class="access-option" for="acesso-elevador">
+                  <input type="radio" id="acesso-elevador" name="acesso" value="Elevador" />
+                  <span class="access-option__icon" aria-hidden="true">🛗</span>
+                  <span class="access-option__label">Elevador</span>
+                </label>
+              </div>
+              <span class="error-message" id="err-acesso" role="alert"></span>
+            </fieldset>
+
+          </div>
+        </section>
+
+        <!-- ---------- 02 — PROFISSIONAL OPERADOR ---------- -->
+        <section class="card" aria-labelledby="sec-operador-title">
+          <div class="card__header">
+            <span class="card__number">02</span>
+            <h2 class="card__title" id="sec-operador-title">Profissional que irá operar o equipamento</h2>
+          </div>
+          <div class="card__body">
+
+            <div class="field">
+              <label for="operadorNome">Nome completo <span class="required">*</span></label>
+              <input type="text" id="operadorNome" name="operadorNome" required aria-required="true" placeholder="Nome completo do profissional" />
+              <span class="error-message" id="err-operadorNome" role="alert"></span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="operadorCpf">CPF <span class="required">*</span></label>
+                <input type="text" id="operadorCpf" name="operadorCpf" inputmode="numeric" required aria-required="true" placeholder="000.000.000-00" maxlength="14" />
+                <span class="error-message" id="err-operadorCpf" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="operadorConselho">Conselho profissional <span class="required">*</span></label>
+                <select id="operadorConselho" name="operadorConselho" required aria-required="true">
+                  <option value="">Selecione...</option>
+                  <option value="CREFITO">CREFITO</option>
+                  <option value="CRM">CRM</option>
+                  <option value="CRBM">CRBM</option>
+                </select>
+                <span class="error-message" id="err-operadorConselho" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="operadorRegistroNumero">Número do registro <span class="required">*</span></label>
+                <input type="text" id="operadorRegistroNumero" name="operadorRegistroNumero" inputmode="numeric" required aria-required="true" placeholder="Ex: 123456" />
+                <span class="error-message" id="err-operadorRegistroNumero" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="operadorRegistroUf">UF do registro <span class="required">*</span></label>
+                <select id="operadorRegistroUf" name="operadorRegistroUf" required aria-required="true">
+                  <option value="">Selecione...</option>
+                </select>
+                <span class="error-message" id="err-operadorRegistroUf" role="alert"></span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ---------- AVISO OPERACIONAL ---------- -->
+        <section class="notice-card notice-card--warning">
+          <div class="notice-card__icon" aria-hidden="true">⚠️</div>
+          <div class="notice-card__content">
+            <h3 class="notice-card__title">IMPORTANTE</h3>
+            <p>Somente as pessoas informadas neste cadastro estarão autorizadas a receber o equipamento para locação e assinar o checklist de entrega e devolução.</p>
+            <label class="checkbox-field" for="cienciaOperacional">
+              <input type="checkbox" id="cienciaOperacional" name="cienciaOperacional" required aria-required="true" />
+              <span>Estou ciente de que somente as pessoas informadas neste cadastro poderão receber os equipamentos e assinar o checklist.</span>
+            </label>
+            <span class="error-message" id="err-cienciaOperacional" role="alert"></span>
+          </div>
+        </section>
+
+        <!-- ---------- 03 — CONFIRMAÇÃO E PRIVACIDADE ---------- -->
+        <section class="card" aria-labelledby="sec-privacidade-title">
+          <div class="card__header">
+            <span class="card__number">03</span>
+            <h2 class="card__title" id="sec-privacidade-title">Confirmação e Privacidade</h2>
+          </div>
+          <div class="card__body">
+
+            <div class="notice-card notice-card--privacy">
+              <div class="notice-card__icon" aria-hidden="true">🔒</div>
+              <div class="notice-card__content">
+                <h3 class="notice-card__title notice-card__title--privacy">Privacidade e proteção dos seus dados</h3>
+                <p>As informações fornecidas neste formulário serão utilizadas pela HM Locações para realização do cadastro, identificação dos responsáveis e profissionais autorizados, gestão da locação dos equipamentos e demais procedimentos necessários à prestação dos serviços.</p>
+                <p>Os dados serão tratados de forma responsável e utilizados somente para as finalidades relacionadas ao cadastro e à prestação dos serviços da HM Locações, observando a legislação aplicável de proteção de dados pessoais.</p>
+                <label class="checkbox-field" for="cienciaPrivacidade">
+                  <input type="checkbox" id="cienciaPrivacidade" name="cienciaPrivacidade" required aria-required="true" />
+                  <span>Li e estou ciente do Aviso de Privacidade e declaro que as informações fornecidas são verdadeiras.</span>
+                </label>
+                <span class="error-message" id="err-cienciaPrivacidade" role="alert"></span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ---------- ENVIO ---------- -->
+        <div class="submit-area">
+          <div class="submit-error" id="submitError" role="alert" hidden>
+            <p><strong>Não foi possível concluir seu cadastro.</strong></p>
+            <p>Verifique sua conexão e tente novamente.</p>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-submit__label">ENVIAR CADASTRO</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- ===================== TELA DE SUCESSO ===================== -->
+      <section class="success-screen" id="successScreen" hidden aria-live="polite">
+        <img src="assets/logo-hm.webp" alt="Logo HM Locações" class="success-screen__logo" />
+        <div class="success-screen__icon" aria-hidden="true">
+          <svg viewBox="0 0 52 52" class="success-checkmark">
+            <circle class="success-checkmark__circle" cx="26" cy="26" r="24" fill="none" />
+            <path class="success-checkmark__check" fill="none" d="M14 27l7 7 17-17" />
+          </svg>
+        </div>
+        <h2 class="success-screen__title">SEJA BEM-VINDO À HM LOCAÇÕES!</h2>
+        <p class="success-screen__subtitle">Cadastro realizado com sucesso!</p>
+        <p class="success-screen__text">Seus dados foram recebidos e registrados. Agradecemos por escolher a HM Locações.</p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="anoAtual"></span> HM Locações de Equipamentos Médicos</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
