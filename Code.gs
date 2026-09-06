@@ -102,72 +102,61 @@ function validateAndSanitize(p) {
   const cienciaOperacional = getText("cienciaOperacional");
   const cienciaPrivacidade = getText("cienciaPrivacidade");
 
-  // Campos obrigatórios de texto
-  const obrigatorios = {
-    clinicaNome, proprietarioNome, proprietarioRegistroNumero,
-    rua, numero, bairro, cidade,
-    operadorNome, operadorRegistroNumero
-  };
+  // Únicos campos obrigatórios do formulário: endereço/local do equipamento
+  const obrigatorios = { rua, numero, bairro, cidade };
   for (const campo in obrigatorios) {
     if (!obrigatorios[campo] || obrigatorios[campo].length === 0) {
-      return { valid: false, error: "Preencha todos os campos obrigatórios." };
+      return { valid: false, error: "Preencha todos os campos obrigatórios do endereço." };
     }
   }
 
-  if (!isValidCNPJ(clinicaCnpj)) {
-    return { valid: false, error: "CNPJ inválido." };
-  }
-
-  if (!isValidCPF(proprietarioCpf)) {
-    return { valid: false, error: "CPF do proprietário inválido." };
-  }
-
-  if (CONSELHOS_VALIDOS.indexOf(proprietarioConselho) === -1) {
-    return { valid: false, error: "Conselho profissional do proprietário inválido." };
-  }
-
-  if (UFS_VALIDAS.indexOf(proprietarioRegistroUf) === -1) {
-    return { valid: false, error: "UF do registro do proprietário inválida." };
-  }
-
   if (cep.length !== 8) {
-    return { valid: false, error: "CEP inválido." };
+    return { valid: false, error: "CEP inválido ou não informado." };
   }
 
   if (UFS_VALIDAS.indexOf(estado) === -1) {
-    return { valid: false, error: "Estado inválido." };
-  }
-
-  if (!isValidEmail(email)) {
-    return { valid: false, error: "E-mail inválido." };
-  }
-
-  if (telefone.length !== 10 && telefone.length !== 11) {
-    return { valid: false, error: "Telefone/WhatsApp inválido." };
+    return { valid: false, error: "Estado inválido ou não informado." };
   }
 
   if (ACESSOS_VALIDOS.indexOf(acesso) === -1) {
-    return { valid: false, error: "Tipo de acesso ao estabelecimento inválido." };
+    return { valid: false, error: "Tipo de acesso ao estabelecimento inválido ou não informado." };
   }
 
-  if (!isValidCPF(operadorCpf)) {
+  // Demais campos são opcionais — validar formato somente quando preenchidos
+  if (clinicaCnpj && !isValidCNPJ(clinicaCnpj)) {
+    return { valid: false, error: "CNPJ inválido." };
+  }
+
+  if (proprietarioCpf && !isValidCPF(proprietarioCpf)) {
+    return { valid: false, error: "CPF do proprietário inválido." };
+  }
+
+  if (proprietarioConselho && CONSELHOS_VALIDOS.indexOf(proprietarioConselho) === -1) {
+    return { valid: false, error: "Conselho profissional do proprietário inválido." };
+  }
+
+  if (proprietarioRegistroUf && UFS_VALIDAS.indexOf(proprietarioRegistroUf) === -1) {
+    return { valid: false, error: "UF do registro do proprietário inválida." };
+  }
+
+  if (email && !isValidEmail(email)) {
+    return { valid: false, error: "E-mail inválido." };
+  }
+
+  if (telefone && telefone.length !== 10 && telefone.length !== 11) {
+    return { valid: false, error: "Telefone/WhatsApp inválido." };
+  }
+
+  if (operadorCpf && !isValidCPF(operadorCpf)) {
     return { valid: false, error: "CPF do profissional operador inválido." };
   }
 
-  if (CONSELHOS_VALIDOS.indexOf(operadorConselho) === -1) {
+  if (operadorConselho && CONSELHOS_VALIDOS.indexOf(operadorConselho) === -1) {
     return { valid: false, error: "Conselho profissional do operador inválido." };
   }
 
-  if (UFS_VALIDAS.indexOf(operadorRegistroUf) === -1) {
+  if (operadorRegistroUf && UFS_VALIDAS.indexOf(operadorRegistroUf) === -1) {
     return { valid: false, error: "UF do registro do operador inválida." };
-  }
-
-  if (cienciaOperacional !== "Sim") {
-    return { valid: false, error: "É necessário confirmar a ciência sobre o recebimento do equipamento." };
-  }
-
-  if (cienciaPrivacidade !== "Sim") {
-    return { valid: false, error: "É necessário confirmar a ciência do Aviso de Privacidade." };
   }
 
   return {

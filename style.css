@@ -319,6 +319,13 @@ select:focus {
   font-size: 0.9rem;
 }
 
+.field-hint {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
 /* ==========================================================================
    ACESSO AO ESTABELECIMENTO
    ========================================================================== */

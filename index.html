@@ -38,35 +38,36 @@
           <div class="card__body">
 
             <div class="field">
-              <label for="clinicaNome">Nome da clínica <span class="required">*</span></label>
-              <input type="text" id="clinicaNome" name="clinicaNome" required aria-required="true" placeholder="Ex: Clínica Vida Saudável" />
+              <label for="clinicaNome">Nome da clínica <span class="optional">(opcional)</span></label>
+              <input type="text" id="clinicaNome" name="clinicaNome" placeholder="Ex: Clínica Vida Saudável" />
               <span class="error-message" id="err-clinicaNome" role="alert"></span>
             </div>
 
             <div class="field-row">
               <div class="field">
-                <label for="clinicaCnpj">CNPJ da clínica <span class="required">*</span></label>
-                <input type="text" id="clinicaCnpj" name="clinicaCnpj" inputmode="numeric" required aria-required="true" placeholder="00.000.000/0000-00" maxlength="18" />
+                <label for="clinicaCnpj">CNPJ da clínica <span class="optional">(opcional)</span></label>
+                <input type="text" id="clinicaCnpj" name="clinicaCnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18" />
+                <span class="field-hint">Caso o cadastro seja de pessoa física, deixe este campo em branco.</span>
                 <span class="error-message" id="err-clinicaCnpj" role="alert"></span>
               </div>
 
               <div class="field">
-                <label for="proprietarioNome">Nome completo do proprietário <span class="required">*</span></label>
-                <input type="text" id="proprietarioNome" name="proprietarioNome" required aria-required="true" placeholder="Nome completo" />
+                <label for="proprietarioNome">Nome completo do proprietário <span class="optional">(opcional)</span></label>
+                <input type="text" id="proprietarioNome" name="proprietarioNome" placeholder="Nome completo" />
                 <span class="error-message" id="err-proprietarioNome" role="alert"></span>
               </div>
             </div>
 
             <div class="field-row">
               <div class="field">
-                <label for="proprietarioCpf">CPF do proprietário <span class="required">*</span></label>
-                <input type="text" id="proprietarioCpf" name="proprietarioCpf" inputmode="numeric" required aria-required="true" placeholder="000.000.000-00" maxlength="14" />
+                <label for="proprietarioCpf">CPF do proprietário <span class="optional">(opcional)</span></label>
+                <input type="text" id="proprietarioCpf" name="proprietarioCpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" />
                 <span class="error-message" id="err-proprietarioCpf" role="alert"></span>
               </div>
 
               <div class="field">
-                <label for="proprietarioConselho">Conselho profissional <span class="required">*</span></label>
-                <select id="proprietarioConselho" name="proprietarioConselho" required aria-required="true">
+                <label for="proprietarioConselho">Conselho profissional <span class="optional">(opcional)</span></label>
+                <select id="proprietarioConselho" name="proprietarioConselho">
                   <option value="">Selecione...</option>
                   <option value="CREFITO">CREFITO</option>
                   <option value="CRM">CRM</option>
@@ -78,14 +79,14 @@
 
             <div class="field-row">
               <div class="field">
-                <label for="proprietarioRegistroNumero">Número do registro <span class="required">*</span></label>
-                <input type="text" id="proprietarioRegistroNumero" name="proprietarioRegistroNumero" inputmode="numeric" required aria-required="true" placeholder="Ex: 123456" />
+                <label for="proprietarioRegistroNumero">Número do registro <span class="optional">(opcional)</span></label>
+                <input type="text" id="proprietarioRegistroNumero" name="proprietarioRegistroNumero" inputmode="numeric" placeholder="Ex: 123456" />
                 <span class="error-message" id="err-proprietarioRegistroNumero" role="alert"></span>
               </div>
 
               <div class="field">
-                <label for="proprietarioRegistroUf">UF do registro <span class="required">*</span></label>
-                <select id="proprietarioRegistroUf" name="proprietarioRegistroUf" required aria-required="true">
+                <label for="proprietarioRegistroUf">UF do registro <span class="optional">(opcional)</span></label>
+                <select id="proprietarioRegistroUf" name="proprietarioRegistroUf">
                   <option value="">Selecione...</option>
                 </select>
                 <span class="error-message" id="err-proprietarioRegistroUf" role="alert"></span>
@@ -143,13 +144,13 @@
 
             <div class="field-row">
               <div class="field">
-                <label for="email">E-mail <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required aria-required="true" placeholder="email@exemplo.com" />
+                <label for="email">E-mail <span class="optional">(opcional)</span></label>
+                <input type="email" id="email" name="email" placeholder="email@exemplo.com" />
                 <span class="error-message" id="err-email" role="alert"></span>
               </div>
               <div class="field">
-                <label for="telefone">Telefone / WhatsApp <span class="required">*</span></label>
-                <input type="text" id="telefone" name="telefone" inputmode="numeric" required aria-required="true" placeholder="(00) 00000-0000" maxlength="15" />
+                <label for="telefone">Telefone / WhatsApp <span class="optional">(opcional)</span></label>
+                <input type="text" id="telefone" name="telefone" inputmode="numeric" placeholder="(00) 00000-0000" maxlength="15" />
                 <span class="error-message" id="err-telefone" role="alert"></span>
               </div>
             </div>
@@ -190,20 +191,20 @@
           <div class="card__body">
 
             <div class="field">
-              <label for="operadorNome">Nome completo <span class="required">*</span></label>
-              <input type="text" id="operadorNome" name="operadorNome" required aria-required="true" placeholder="Nome completo do profissional" />
+              <label for="operadorNome">Nome completo <span class="optional">(opcional)</span></label>
+              <input type="text" id="operadorNome" name="operadorNome" placeholder="Nome completo do profissional" />
               <span class="error-message" id="err-operadorNome" role="alert"></span>
             </div>
 
             <div class="field-row">
               <div class="field">
-                <label for="operadorCpf">CPF <span class="required">*</span></label>
-                <input type="text" id="operadorCpf" name="operadorCpf" inputmode="numeric" required aria-required="true" placeholder="000.000.000-00" maxlength="14" />
+                <label for="operadorCpf">CPF <span class="optional">(opcional)</span></label>
+                <input type="text" id="operadorCpf" name="operadorCpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" />
                 <span class="error-message" id="err-operadorCpf" role="alert"></span>
               </div>
               <div class="field">
-                <label for="operadorConselho">Conselho profissional <span class="required">*</span></label>
-                <select id="operadorConselho" name="operadorConselho" required aria-required="true">
+                <label for="operadorConselho">Conselho profissional <span class="optional">(opcional)</span></label>
+                <select id="operadorConselho" name="operadorConselho">
                   <option value="">Selecione...</option>
                   <option value="CREFITO">CREFITO</option>
                   <option value="CRM">CRM</option>
@@ -215,13 +216,13 @@
 
             <div class="field-row">
               <div class="field">
-                <label for="operadorRegistroNumero">Número do registro <span class="required">*</span></label>
-                <input type="text" id="operadorRegistroNumero" name="operadorRegistroNumero" inputmode="numeric" required aria-required="true" placeholder="Ex: 123456" />
+                <label for="operadorRegistroNumero">Número do registro <span class="optional">(opcional)</span></label>
+                <input type="text" id="operadorRegistroNumero" name="operadorRegistroNumero" inputmode="numeric" placeholder="Ex: 123456" />
                 <span class="error-message" id="err-operadorRegistroNumero" role="alert"></span>
               </div>
               <div class="field">
-                <label for="operadorRegistroUf">UF do registro <span class="required">*</span></label>
-                <select id="operadorRegistroUf" name="operadorRegistroUf" required aria-required="true">
+                <label for="operadorRegistroUf">UF do registro <span class="optional">(opcional)</span></label>
+                <select id="operadorRegistroUf" name="operadorRegistroUf">
                   <option value="">Selecione...</option>
                 </select>
                 <span class="error-message" id="err-operadorRegistroUf" role="alert"></span>
@@ -238,7 +239,7 @@
             <h3 class="notice-card__title">IMPORTANTE</h3>
             <p>Somente as pessoas informadas neste cadastro estarão autorizadas a receber o equipamento para locação e assinar o checklist de entrega e devolução.</p>
             <label class="checkbox-field" for="cienciaOperacional">
-              <input type="checkbox" id="cienciaOperacional" name="cienciaOperacional" required aria-required="true" />
+              <input type="checkbox" id="cienciaOperacional" name="cienciaOperacional" />
               <span>Estou ciente de que somente as pessoas informadas neste cadastro poderão receber os equipamentos e assinar o checklist.</span>
             </label>
             <span class="error-message" id="err-cienciaOperacional" role="alert"></span>
@@ -260,7 +261,7 @@
                 <p>As informações fornecidas neste formulário serão utilizadas pela HM Locações para realização do cadastro, identificação dos responsáveis e profissionais autorizados, gestão da locação dos equipamentos e demais procedimentos necessários à prestação dos serviços.</p>
                 <p>Os dados serão tratados de forma responsável e utilizados somente para as finalidades relacionadas ao cadastro e à prestação dos serviços da HM Locações, observando a legislação aplicável de proteção de dados pessoais.</p>
                 <label class="checkbox-field" for="cienciaPrivacidade">
-                  <input type="checkbox" id="cienciaPrivacidade" name="cienciaPrivacidade" required aria-required="true" />
+                  <input type="checkbox" id="cienciaPrivacidade" name="cienciaPrivacidade" />
                   <span>Li e estou ciente do Aviso de Privacidade e declaro que as informações fornecidas são verdadeiras.</span>
                 </label>
                 <span class="error-message" id="err-cienciaPrivacidade" role="alert"></span>

@@ -299,24 +299,14 @@ function validateForm() {
 
   const get = (id) => document.getElementById(id).value;
 
-  // Dados da clínica
-  if (isBlank(get("clinicaNome"))) markError("clinicaNome", "Informe o nome da clínica.");
-
+  // Dados da clínica — todos opcionais; quando preenchidos, validar formato
   const cnpj = get("clinicaCnpj");
-  if (isBlank(cnpj)) markError("clinicaCnpj", "Informe o CNPJ da clínica.");
-  else if (!isValidCNPJ(cnpj)) markError("clinicaCnpj", "CNPJ inválido.");
-
-  if (isBlank(get("proprietarioNome"))) markError("proprietarioNome", "Informe o nome do proprietário.");
+  if (!isBlank(cnpj) && !isValidCNPJ(cnpj)) markError("clinicaCnpj", "CNPJ inválido.");
 
   const propCpf = get("proprietarioCpf");
-  if (isBlank(propCpf)) markError("proprietarioCpf", "Informe o CPF do proprietário.");
-  else if (!isValidCPF(propCpf)) markError("proprietarioCpf", "CPF inválido.");
+  if (!isBlank(propCpf) && !isValidCPF(propCpf)) markError("proprietarioCpf", "CPF inválido.");
 
-  if (isBlank(get("proprietarioConselho"))) markError("proprietarioConselho", "Selecione o conselho profissional.");
-  if (isBlank(get("proprietarioRegistroNumero"))) markError("proprietarioRegistroNumero", "Informe o número do registro.");
-  if (isBlank(get("proprietarioRegistroUf"))) markError("proprietarioRegistroUf", "Selecione a UF do registro.");
-
-  // Endereço
+  // Endereço — únicos campos obrigatórios do formulário
   const cep = get("cep");
   if (isBlank(cep)) markError("cep", "Informe o CEP.");
   else if (onlyDigits(cep).length !== 8) markError("cep", "CEP inválido.");
@@ -327,16 +317,14 @@ function validateForm() {
   if (isBlank(get("cidade"))) markError("cidade", "Informe a cidade.");
   if (isBlank(get("estado"))) markError("estado", "Selecione o estado.");
 
-  // Contato
+  // Contato — opcionais; quando preenchidos, validar formato
   const email = get("email");
-  if (isBlank(email)) markError("email", "Informe o e-mail.");
-  else if (!isValidEmail(email)) markError("email", "E-mail inválido.");
+  if (!isBlank(email) && !isValidEmail(email)) markError("email", "E-mail inválido.");
 
   const telefone = get("telefone");
-  if (isBlank(telefone)) markError("telefone", "Informe o telefone/WhatsApp.");
-  else if (!isValidPhone(telefone)) markError("telefone", "Telefone inválido.");
+  if (!isBlank(telefone) && !isValidPhone(telefone)) markError("telefone", "Telefone inválido.");
 
-  // Acesso ao estabelecimento
+  // Acesso ao estabelecimento — obrigatório
   const acessoSelecionado = document.querySelector('input[name="acesso"]:checked');
   if (!acessoSelecionado) {
     const acessoGroup = document.getElementById("acessoGroup");
@@ -345,31 +333,9 @@ function validateForm() {
     if (!firstErrorField) firstErrorField = document.getElementById("acesso-terreo");
   }
 
-  // Profissional operador
-  if (isBlank(get("operadorNome"))) markError("operadorNome", "Informe o nome do profissional.");
-
+  // Profissional operador — opcional; CPF validado somente se preenchido
   const opCpf = get("operadorCpf");
-  if (isBlank(opCpf)) markError("operadorCpf", "Informe o CPF do profissional.");
-  else if (!isValidCPF(opCpf)) markError("operadorCpf", "CPF inválido.");
-
-  if (isBlank(get("operadorConselho"))) markError("operadorConselho", "Selecione o conselho profissional.");
-  if (isBlank(get("operadorRegistroNumero"))) markError("operadorRegistroNumero", "Informe o número do registro.");
-  if (isBlank(get("operadorRegistroUf"))) markError("operadorRegistroUf", "Selecione a UF do registro.");
-
-  // Checkboxes obrigatórios
-  const cienciaOperacional = document.getElementById("cienciaOperacional");
-  if (!cienciaOperacional.checked) {
-    document.getElementById("err-cienciaOperacional").textContent =
-      "É necessário confirmar a ciência sobre o recebimento do equipamento.";
-    if (!firstErrorField) firstErrorField = cienciaOperacional;
-  }
-
-  const cienciaPrivacidade = document.getElementById("cienciaPrivacidade");
-  if (!cienciaPrivacidade.checked) {
-    document.getElementById("err-cienciaPrivacidade").textContent =
-      "É necessário confirmar a ciência do Aviso de Privacidade.";
-    if (!firstErrorField) firstErrorField = cienciaPrivacidade;
-  }
+  if (!isBlank(opCpf) && !isValidCPF(opCpf)) markError("operadorCpf", "CPF inválido.");
 
   return { valid: !firstErrorField, firstErrorField };
 }
